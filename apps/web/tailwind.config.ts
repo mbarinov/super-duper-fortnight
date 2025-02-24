@@ -8,6 +8,11 @@ const config: Config = {
         sans: ["var(--font-inter)", "sans"],
         lato: ["var(--font-lato)", "sans-serif"],
       },
+      colors: {
+        accent: {
+          DEFAULT: "#E6EFF5",
+        },
+      },
     },
   },
   plugins: [],

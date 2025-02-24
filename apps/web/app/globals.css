@@ -2,11 +2,11 @@
 
 @layer utilities {
   .text-hero {
-    @apply text-[25px] font-extrabold leading-[1];
+    @apply text-[25px] font-extrabold leading-[1] text-primary-secondary;
   }
 
   .text-title {
-    @apply text-[28px] font-semibold leading-[1];
+    @apply text-[20px] md:text-[28px] font-semibold leading-[1] text-primary-secondary;
   }
 
   .text-header {
@@ -30,4 +30,12 @@
   html {
     font-family: var(--font-inter), system-ui, sans-serif;
   }
+}
+
+@theme {
+  --color-accent-border: #e6eff5;
+  --color-primary-secondary: #343C6A;
+  --color-placeholder: #8BA3CB;
+  --color-background: #F5F7FA;
+  --color-blue-accent: #718EBF;
 }

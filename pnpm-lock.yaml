@@ -23,15 +23,12 @@ importers:
       '@repo/icons':
         specifier: workspace:*
         version: link:../../packages/icons
-      '@repo/tailwind-config':
-        specifier: '*'
-        version: link:../../packages/tailwind-config
-      '@repo/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
       '@tailwindcss/postcss':
         specifier: ^4.0.8
         version: 4.0.8
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
       next:
         specifier: ^15.1.6
         version: 15.1.7(react-dom@19.0.0)(react@19.0.0)
@@ -1801,6 +1798,10 @@ packages:
     dependencies:
       readdirp: 4.1.2
     dev: true
+
+  /classnames@2.5.1:
+    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
+    dev: false
 
   /clean-stack@2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}

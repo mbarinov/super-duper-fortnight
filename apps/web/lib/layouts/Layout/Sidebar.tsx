@@ -1,4 +1,3 @@
-// src/components/Layout/Sidebar.js
 import React from "react";
 
 import { TaskIcon } from "@repo/icons";
@@ -6,7 +5,7 @@ import { NAV_ITEMS } from "./navigation";
 
 const Sidebar = () => {
   return (
-    <aside className="hidden md:flex flex-col w-[250px] bg-white border-r">
+    <aside className="hidden md:flex flex-col w-[250px] bg-white border-r border-accent-border">
       <div className="p-4 h-[100px] text-hero flex items-center gap-2">
         <TaskIcon className="w-9 h-9" />
         Soar Task
