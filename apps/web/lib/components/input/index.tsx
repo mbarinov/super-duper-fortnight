@@ -17,35 +17,28 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const LeftIconComponent =
       leftIcon === "search" ? <SearchIcon fill="#718EBF" /> : null;
 
+    const wrapperClasses = cn("relative flex items-center w-full", className);
+
     const inputClasses = cn(
-      // Base styles
-      "h-[50px] w-full rounded-full",
-      "px-[25px] py-[15px]",
-      "bg-background",
-
-      // Typography
+      "h-[40px] md:h-[50px] w-full rounded-full px-[25px] py-[15px] bg-background",
       "placeholder:text-gray-400",
-
-      // Focus states
       "focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent",
-
-      // Transitions
       "transition-all duration-200",
-
-      // Conditional styles
-      error && "border-red-500 focus:ring-red-500",
-      leftIcon && "pl-[60px]",
-      rightIcon && "pr-[60px]",
-
-      // Custom styles
-      className
+      {
+        "border-red-500 focus:ring-red-500": error,
+        "pl-[60px]": leftIcon,
+        "pr-[60px]": rightIcon,
+      }
     );
 
     return (
-      <div className="relative flex items-center">
+      <div className={wrapperClasses}>
         {LeftIconComponent && (
           <div
-            className={cn(iconClasses, "absolute left-[25px] text-blue-accent")}
+            className={cn(
+              iconClasses,
+              "absolute left-[25px] h-full text-blue-accent"
+            )}
           >
             {LeftIconComponent}
           </div>
@@ -54,7 +47,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         <input ref={ref} className={inputClasses} {...props} />
 
         {rightIcon && (
-          <div className={cn(iconClasses, "absolute right-[25px]")}>
+          <div
+            className={cn(
+              iconClasses,
+              "absolute h-full right-[25px] text-blue-accent"
+            )}
+          >
             {rightIcon}
           </div>
         )}

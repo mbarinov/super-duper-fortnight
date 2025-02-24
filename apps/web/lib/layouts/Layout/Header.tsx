@@ -41,10 +41,11 @@ const Header = () => {
       </div>
 
       <div className="flex items-center justify-between bg-white px-6 shadow relative z-10">
-        <input
+        <Input
+          leftIcon="search"
+          className="md:hidden"
           type="search"
           placeholder="Search for something"
-          className="md:hidden border border-gray-300 rounded-md py-1 px-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
       </div>
       {/* Mobile Navigation Menu */}
