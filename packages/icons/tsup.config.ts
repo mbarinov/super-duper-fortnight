@@ -7,7 +7,7 @@ export default defineConfig({
   clean: true,
   external: ["react"],
   treeshake: true,
-  tsconfig: "tsconfig.build.json",
+  tsconfig: "tsconfig.json",
   splitting: true,
   sourcemap: true,
-}); 
+});
