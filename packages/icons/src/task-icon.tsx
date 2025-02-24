@@ -10,7 +10,7 @@ export function TaskIcon({
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox="0 0 35 35"
       className={className}
       aria-hidden={ariaHidden}
       {...props}
