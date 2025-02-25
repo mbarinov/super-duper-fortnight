@@ -2,6 +2,7 @@ import React from "react";
 
 import { TaskIcon } from "@repo/icons";
 import { NAV_ITEMS } from "./navigation";
+import { SidebarIcon } from "./SidebarIcon";
 
 const Sidebar = () => {
   return (
@@ -11,18 +12,13 @@ const Sidebar = () => {
         Soar Task
       </div>
 
-      {/* Navigation */}
       <nav className="flex-1 py-4">
         <ul className="space-y-1">
-          {NAV_ITEMS.map(({ label, href, icon }) => (
+          {NAV_ITEMS.map(({ label, href, icon: Icon }) => (
             <li key={href}>
-              <a
-                href={href}
-                className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md mx-2"
-              >
-                {/* You can add icons here if needed */}
-                <span>{label}</span>
-              </a>
+              <SidebarIcon label={label} href={href}>
+                <Icon className="w-full h-full" />
+              </SidebarIcon>
             </li>
           ))}
         </ul>

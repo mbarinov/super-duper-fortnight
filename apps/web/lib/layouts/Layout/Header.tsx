@@ -4,6 +4,7 @@ import { MenuIcon } from "@repo/icons";
 import { Input } from "@/lib/components/input";
 import { NAV_ITEMS } from "./navigation";
 import Title from "./title";
+import { SidebarIcon } from "./SidebarIcon";
 
 const Header = () => {
   return (
@@ -53,15 +54,12 @@ const Header = () => {
         className="md:hidden bg-white overflow-hidden max-h-0 peer-checked:max-h-[400px] transition-all duration-300 ease-in-out"
         aria-label="Mobile navigation"
       >
-        <ul className="p-4 space-y-1">
-          {NAV_ITEMS.map(({ label, href }) => (
+        <ul className="space-y-1">
+          {NAV_ITEMS.map(({ label, href, icon: Icon }) => (
             <li key={href}>
-              <a
-                href={href}
-                className="block py-2.5 px-4 text-gray-800 hover:bg-gray-100 rounded-md transition-colors duration-200"
-              >
-                {label}
-              </a>
+              <SidebarIcon label={label} href={href}>
+                <Icon className="w-full h-full" />
+              </SidebarIcon>
             </li>
           ))}
         </ul>
