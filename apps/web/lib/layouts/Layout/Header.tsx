@@ -3,6 +3,7 @@ import { MenuIcon } from "@repo/icons";
 
 import { Input } from "@/lib/components/input";
 import { NAV_ITEMS } from "./navigation";
+import Title from "./title";
 
 const Header = () => {
   return (
@@ -23,7 +24,7 @@ const Header = () => {
           </label>
         </div>
 
-        <div className="text-title text-center">Soar Task</div>
+        <Title />
 
         {/* Right Section: Avatar or Profile */}
         <div className="flex items-center space-x-4">
