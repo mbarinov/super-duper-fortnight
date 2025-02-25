@@ -10,7 +10,7 @@ const Header = () => {
       {/* Hidden checkbox for toggle control */}
       <input type="checkbox" id="nav-toggle" className="hidden peer" />
 
-      <div className="flex items-center justify-between bg-white p-6 shadow relative z-10 min-h-[100px]">
+      <div className="flex items-center justify-between bg-white px-6 py-6 pb-5 relative z-10 min-h-[100px]">
         {/* Left Section: Mobile Toggle & Search */}
         <div className="flex items-center space-x-2 md:hidden">
           {/* Mobile menu button - now a label */}
@@ -40,20 +40,19 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="flex items-center justify-between bg-white px-6 shadow relative z-10">
+      <div className="flex items-center justify-between md:hidden bg-white px-6 pb-5 relative z-10">
         <Input
           leftIcon="search"
-          className="md:hidden"
           type="search"
           placeholder="Search for something"
         />
       </div>
       {/* Mobile Navigation Menu */}
       <nav
-        className="md:hidden bg-white overflow-hidden max-h-0 peer-checked:max-h-[400px] transition-all duration-300 ease-in-out border-b"
+        className="md:hidden bg-white overflow-hidden max-h-0 peer-checked:max-h-[400px] transition-all duration-300 ease-in-out"
         aria-label="Mobile navigation"
       >
-        <ul className="p-4 space-y-1 border-t">
+        <ul className="p-4 space-y-1">
           {NAV_ITEMS.map(({ label, href }) => (
             <li key={href}>
               <a
