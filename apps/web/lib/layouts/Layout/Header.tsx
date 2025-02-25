@@ -1,7 +1,8 @@
 import React from "react";
-import { MenuIcon } from "@repo/icons";
+import { MenuIcon, SettingsOutlineIcon, NotificationsIcon } from "@repo/icons";
 
 import { Input } from "@/lib/components/input";
+import { IconButton } from "@/lib/components/icon-button";
 import { NAV_ITEMS } from "./navigation";
 import Title from "./title";
 import { SidebarIcon } from "./SidebarIcon";
@@ -28,12 +29,23 @@ const Header = () => {
         <Title />
 
         {/* Right Section: Avatar or Profile */}
-        <div className="flex items-center space-x-4">
+        <div className="items-center gap-[30px] hidden md:flex">
           <Input
             leftIcon="search"
-            className="hidden md:block"
+            className=""
             type="search"
             placeholder="Search for something"
+          />
+          <IconButton
+            icon={<SettingsOutlineIcon size={25} />}
+            href="/settings"
+            ariaLabel="Settings"
+          />
+
+          <IconButton
+            icon={<NotificationsIcon size={25} />}
+            href="/notifications"
+            ariaLabel="Notifications"
           />
           {/* You could add notification icons, etc. here */}
           <div className="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
