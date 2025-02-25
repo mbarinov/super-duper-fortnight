@@ -10,7 +10,9 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
       <div className="flex flex-col flex-1">
         <Header />
-        <main className="w-[1100px] mx-auto ">{children}</main>
+        <main className="md:max-w-[1100px] mx-auto md:my-5 md:mx-10 px-6 md:px-0">
+          {children}
+        </main>
       </div>
     </div>
   );

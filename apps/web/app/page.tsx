@@ -4,9 +4,9 @@ import { Cards } from "@/lib/pages/dashboard/cards";
 
 export default function Home() {
   return (
-    <div className="min-h-screen md:bg-background bg-white md:py-5 md:px-10 px-6">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-5 lg:gap-y-6 lg:gap-x-8">
-        <div className="lg:col-span-2">
+    <div className="min-h-screen md:bg-background bg-white ">
+      <div className="grid grid-cols-1 min-[1440px]:grid-cols-3 gap-y-5 lg:gap-y-6 lg:gap-x-8">
+        <div className="min-[1440px]:col-span-2">
           <GridItem title="My Cards" actionTitle="See All">
             <Cards />
           </GridItem>
@@ -18,7 +18,7 @@ export default function Home() {
           </GridItem>
         </div>
 
-        <div className="lg:col-span-2">
+        <div className="min-[1440px]:col-span-2">
           <GridItem title="Weekly Activity">
             <Box>Placeholder for chart or graph</Box>
           </GridItem>
@@ -36,7 +36,7 @@ export default function Home() {
           </GridItem>
         </div>
 
-        <div className="lg:col-span-2">
+        <div className="min-[1440px]:col-span-2">
           <GridItem title="Balance History">
             <Box>Placeholder for line chart</Box>
           </GridItem>
