@@ -12,4 +12,5 @@ export * from "./task-icon";
 export * from "./home-icon";
 export * from "./transactions-icon";
 export * from "./notifications-icon";
+export * from "./mastercard-icon";
 export * from "./types";
