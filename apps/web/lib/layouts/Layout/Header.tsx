@@ -3,6 +3,7 @@ import { MenuIcon, SettingsOutlineIcon, NotificationsIcon } from "@repo/icons";
 
 import { Input } from "@/lib/components/input";
 import { IconButton } from "@/lib/components/icon-button";
+import Avatar from "@/lib/components/avatar";
 import { NAV_ITEMS } from "./navigation";
 import Title from "./title";
 import { SidebarIcon } from "./SidebarIcon";
@@ -27,6 +28,8 @@ const Header = () => {
         </div>
 
         <Title />
+        <Avatar className="md:hidden" src="/user-avatar.png" name="John Doe" />
+
 
         {/* Right Section: Avatar or Profile */}
         <div className="items-center gap-[30px] hidden md:flex">
@@ -47,10 +50,7 @@ const Header = () => {
             href="/notifications"
             ariaLabel="Notifications"
           />
-          {/* You could add notification icons, etc. here */}
-          <div className="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
-            <span className="text-sm font-bold text-white">JD</span>
-          </div>
+          <Avatar src="/user-avatar.png" name="John Doe" />
         </div>
       </div>
 
