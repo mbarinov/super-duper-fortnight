@@ -1,8 +1,9 @@
+import Box from "@/lib/components/box";
 import GridItem from "../lib/components/grid-item";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background py-5 px-10">
+    <div className="min-h-screen md:bg-background bg-white md:py-5 md:px-10 px-6">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-5 lg:gap-y-6 lg:gap-x-8">
         {/* My Cards (spans 2 of 3 columns on lg) */}
         <div className="lg:col-span-2">
@@ -28,35 +29,35 @@ export default function Home() {
         {/* Extra block for the remaining column */}
         <div>
           <GridItem title="Recent Transaction">
-            <p className="text-gray-500">Placeholder content</p>
+            <Box>Placeholder content</Box>
           </GridItem>
         </div>
 
         {/* Weekly Activity (spans 2 of 3 columns on lg) */}
         <div className="lg:col-span-2">
           <GridItem title="Weekly Activity">
-            <p className="text-gray-500">Placeholder for chart or graph</p>
+            <Box>Placeholder for chart or graph</Box>
           </GridItem>
         </div>
 
         {/* Another block */}
         <div>
           <GridItem title="Expense Statistics">
-            <p className="text-gray-500">Placeholder content</p>
+            <Box>Placeholder content</Box>
           </GridItem>
         </div>
 
         {/* Another block */}
         <div>
           <GridItem title="Quick Transfer">
-            <p className="text-gray-500">Placeholder content</p>
+            <Box>Placeholder content</Box>
           </GridItem>
         </div>
 
         {/* Balance History (spans 2 of 3 columns on lg) */}
         <div className="lg:col-span-2">
           <GridItem title="Balance History">
-            <p className="text-gray-500">Placeholder for line chart</p>
+            <Box>Placeholder for line chart</Box>
           </GridItem>
         </div>
       </div>
