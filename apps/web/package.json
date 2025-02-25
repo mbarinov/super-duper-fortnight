@@ -13,11 +13,13 @@
   "dependencies": {
     "@repo/icons": "workspace:*",
     "@tailwindcss/postcss": "^4.0.8",
+    "@tanstack/react-query": "^5.66.9",
     "classnames": "^2.5.1",
     "next": "^15.1.6",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "swr": "^2.3.2",
     "tailwindcss": "^4.0.8"
   },
   "devDependencies": {

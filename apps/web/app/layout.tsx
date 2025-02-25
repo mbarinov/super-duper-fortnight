@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Lato } from "next/font/google";
 import { Layout } from "@/lib/layouts/layout";
+import { ReactQueryProvider } from "@/lib/providers/query-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,7 +36,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${lato.variable}`}>
       <body>
-        <Layout>{children}</Layout>
+        <ReactQueryProvider>
+          <Layout>{children}</Layout>
+        </ReactQueryProvider>
       </body>
     </html>
   );
