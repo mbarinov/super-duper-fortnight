@@ -1,6 +1,7 @@
 import Box from "@/lib/components/box";
 import GridItem from "../lib/components/grid-item";
 import { Cards } from "@/lib/pages/dashboard/cards";
+import Transactions from "@/lib/pages/dashboard/transactions";
 
 export default function Home() {
   return (
@@ -12,11 +13,11 @@ export default function Home() {
           </GridItem>
         </div>
 
-        <div>
-          <GridItem title="Recent Transaction">
-            <Box>Placeholder content</Box>
-          </GridItem>
-        </div>
+        <GridItem title="Recent Transactions">
+          <Box className="md:h-[235px] h-[170px]">
+            <Transactions />
+          </Box>
+        </GridItem>
 
         <div className="min-[1440px]:col-span-2">
           <GridItem title="Weekly Activity">
