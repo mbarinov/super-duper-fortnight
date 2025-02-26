@@ -4,6 +4,7 @@ import { Cards } from "@/lib/pages/dashboard/cards";
 import Transactions from "@/lib/pages/dashboard/transactions";
 import Transfers from "@/lib/pages/dashboard/transfers";
 import Activity from "@/lib/pages/dashboard/activity";
+import Expenses from "@/lib/pages/dashboard/expenses";
 
 export default function Home() {
   return (
@@ -30,7 +31,9 @@ export default function Home() {
         </div>
 
         <GridItem title="Expense Statistics">
-          <Box>Placeholder content</Box>
+          <Box>
+            <Expenses />
+          </Box>
         </GridItem>
 
         <div className="min-[1440px]:flex min-[1440px]:space-x-8 block space-y-5 min-[1440px]:space-y-0 col-span-full">

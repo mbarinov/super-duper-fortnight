@@ -24,11 +24,9 @@ ChartJS.register(
   Legend
 );
 
-const BlankSpace = () => {
-  return (
-    <div className="w-full h-[300px] bg-white flex items-center justify-center" />
-  );
-};
+const BlankSpace = () => (
+  <div className="w-full h-[300px] bg-white flex items-center justify-center" />
+);
 
 const ActivityChart = () => {
   const { data, isLoading } = useQuery({
@@ -128,11 +126,7 @@ const ActivityChart = () => {
 
 const DynamicActivityChart = dynamic(() => Promise.resolve(ActivityChart), {
   ssr: false,
-  loading: () => <BlankSpace />,
+  loading: BlankSpace,
 });
 
-const LazyActivityChart: React.FC = () => {
-  return <DynamicActivityChart />;
-};
-
-export default LazyActivityChart;
+export default DynamicActivityChart;
