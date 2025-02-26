@@ -28,11 +28,20 @@ const data = [
     category: "transfer",
     description: "Jemi Wilson",
   },
+  {
+    id: 4,
+    amount: 5400,
+    currency: "USD",
+    date: new Date(),
+    type: "debit",
+    category: "deposit",
+    description: "Deposit from my Card",
+  },
 ];
 
 export default function Transactions() {
   return (
-    <div className="flex-1 h-full rounded-[25px] md:bg-white">
+    <div className="flex-1 h-full md:bg-white overflow-y-auto scrollbar-hide">
       <div className="flex flex-col gap-2">
         {data.map((transaction) => (
           <Transaction key={transaction.id} {...transaction} />
