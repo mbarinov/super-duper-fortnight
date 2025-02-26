@@ -3,6 +3,7 @@ import GridItem from "../lib/components/grid-item";
 import { Cards } from "@/lib/pages/dashboard/cards";
 import Transactions from "@/lib/pages/dashboard/transactions";
 import Transfers from "@/lib/pages/dashboard/transfers";
+import Activity from "@/lib/pages/dashboard/activity";
 
 export default function Home() {
   return (
@@ -22,7 +23,9 @@ export default function Home() {
 
         <div className="min-[1440px]:col-span-2">
           <GridItem title="Weekly Activity">
-            <Box>Placeholder for chart or graph</Box>
+            <Box>
+              <Activity />
+            </Box>
           </GridItem>
         </div>
 

@@ -126,8 +126,8 @@ function TransfersLoading() {
   return (
     <div className="flex flex-col gap-8 justify-between h-full">
       <div className="flex flex-row gap-9 items-center justify-between">
-        <div className="flex flex-row justify-between flex-1">
-          {Array.from({ length: 3 }).map((_, i) => (
+        <div className="flex flex-row flex-1">
+          {Array.from({ length: 2 }).map((_, i) => (
             <ContactSkeleton key={i} />
           ))}
         </div>
