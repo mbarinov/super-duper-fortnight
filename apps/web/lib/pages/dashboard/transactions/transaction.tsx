@@ -5,7 +5,7 @@ import { DepositIcon, MoneyIcon, PaypalIcon } from "./transaction-icons";
 interface TransactionProps {
   amount: number;
   currency: string;
-  date: Date;
+  date: string;
   type: string;
   category: string;
   description: string;
@@ -26,7 +26,8 @@ export default function Transaction({
     maximumFractionDigits: 0,
   }).format(amount);
 
-  const formattedDate = date.toLocaleDateString("en-US", {
+  const dateObj = new Date(date);
+  const formattedDate = dateObj.toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
     year: "numeric",
