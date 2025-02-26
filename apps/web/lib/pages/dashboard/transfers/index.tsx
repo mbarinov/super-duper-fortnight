@@ -54,9 +54,19 @@ const contacts: ContactType[] = [
 export default function Transfers() {
   const [selectedContact, setSelectedContact] = useState<string | null>(null);
   const [startIndex, setStartIndex] = useState(0);
+  const [amount, setAmount] = useState<number | null>(null);
 
   const handleNextClick = () => {
     setStartIndex((prevIndex) => (prevIndex + 1) % contacts.length);
+  };
+
+  const handleSendClick = () => {
+    if (amount && selectedContact) {
+      const contact = contacts.find(
+        (contact) => contact.id === selectedContact
+      );
+      alert(`Send ${amount} to ${contact?.name}`);
+    }
   };
 
   const visibleContacts = useMemo(() => {
@@ -97,38 +107,20 @@ export default function Transfers() {
 
       <div className="flex flex-row md:gap-8 gap-4 items-center">
         <div className="text-hint text-[#718EBF] text-nowrap">Write amount</div>
-        <div className="inline-flex items-center rounded-full bg-background  overflow-hidden">
+        <div className="inline-flex items-center rounded-full bg-background overflow-hidden">
           <input
             type="number"
-            className="
-            h-[40px] 
-            md:h-[50px]   
-            w-full
-            min-w-[100px]
-            md:px-8
-            px-4
-            py-4 
-            bg-background 
-            text-[#718EBF]
-            focus:outline-none
-            border-none
-        "
-            defaultValue="525.50"
+            className="h-[40px] md:h-[50px] w-full min-w-[100px] md:px-8 px-4 py-4 bg-background text-[#718EBF] focus:outline-none border-none"
+            defaultValue={amount ?? ""}
+            onChange={(e) =>
+              setAmount(e.target.value ? parseFloat(e.target.value) : null)
+            }
           />
 
           <button
             type="button"
-            className="
-            flex items-center justify-center gap-2
-            h-[40px] md:h-[50px] w-fit
-            pl-4 md:pl-8
-            pr-2 md:pr-4
-            py-4
-            bg-black hover:bg-gray-800
-            text-white
-            rounded-full
-            cursor-pointer
-        "
+            className="flex items-center justify-center gap-2 h-[40px] md:h-[50px] w-fit pl-4 md:pl-8 pr-2 md:pr-4 py-4 bg-black hover:bg-gray-800 text-white rounded-full cursor-pointer"
+            onClick={handleSendClick}
           >
             Send
             <SendIcon />
