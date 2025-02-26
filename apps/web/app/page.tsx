@@ -2,6 +2,7 @@ import Box from "@/lib/components/box";
 import GridItem from "../lib/components/grid-item";
 import { Cards } from "@/lib/pages/dashboard/cards";
 import Transactions from "@/lib/pages/dashboard/transactions";
+import Transfers from "@/lib/pages/dashboard/transfers";
 
 export default function Home() {
   return (
@@ -25,22 +26,24 @@ export default function Home() {
           </GridItem>
         </div>
 
-        <div>
-          <GridItem title="Expense Statistics">
-            <Box>Placeholder content</Box>
-          </GridItem>
-        </div>
+        <GridItem title="Expense Statistics">
+          <Box>Placeholder content</Box>
+        </GridItem>
 
-        <div>
-          <GridItem title="Quick Transfer">
-            <Box>Placeholder content</Box>
-          </GridItem>
-        </div>
+        <div className="min-[1440px]:flex min-[1440px]:space-x-8 block space-y-5 min-[1440px]:space-y-0 col-span-full">
+          <div className="min-[1440px]:w-[445px] w-full">
+            <GridItem title="Quick Transfer">
+              <Box>
+                <Transfers />
+              </Box>
+            </GridItem>
+          </div>
 
-        <div className="min-[1440px]:col-span-2">
-          <GridItem title="Balance History">
-            <Box>Placeholder for line chart</Box>
-          </GridItem>
+          <div className="min-[1440px]:flex-1 w-full">
+            <GridItem title="Balance History">
+              <Box>Placeholder for line chart</Box>
+            </GridItem>
+          </div>
         </div>
       </div>
     </div>

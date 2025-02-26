@@ -16,4 +16,6 @@ export * from "./mastercard-icon";
 export * from "./paypal-icon";
 export * from "./money-icon";
 export * from "./deposit-icon";
+export * from "./chevron-right-icon";
+export * from "./send-icon";
 export * from "./types";
