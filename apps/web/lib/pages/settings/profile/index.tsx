@@ -13,9 +13,11 @@ import {
 import {
   fetchUserProfile,
   updateUserProfile,
+  uploadProfilePhoto,
   UserProfile,
 } from "@/lib/api/user";
 import { Suspense } from "react";
+import { PencilIcon } from "@repo/icons";
 
 const nameSchema = z
   .string()
@@ -73,6 +75,7 @@ const profileSchema = z.object({
   city: textSchema,
   postalCode: postalCodeSchema,
   country: textSchema,
+  profilePhoto: z.string().optional(),
 });
 
 const zodValidator =
@@ -102,12 +105,28 @@ function ProfileForm() {
     mutationFn: updateUserProfile,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["userProfile"] });
-      alert("Profile updated successfully!");
     },
     onError: (error) => {
       alert(`Failed to update profile: ${error.message}`);
     },
   });
+
+  const photoMutation = useMutation({
+    mutationFn: uploadProfilePhoto,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["userProfile"] });
+    },
+    onError: (error) => {
+      alert(`Failed to update profile photo: ${error.message}`);
+    },
+  });
+
+  const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    photoMutation.mutate(file);
+  };
 
   const form = useForm({
     defaultValues: {
@@ -121,6 +140,7 @@ function ProfileForm() {
       city: userProfile.city,
       postalCode: userProfile.postalCode,
       country: userProfile.country,
+      profilePhoto: userProfile.profilePhoto || "",
     },
     onSubmit: async ({ value }) => {
       try {
@@ -133,7 +153,6 @@ function ProfileForm() {
         mutation.mutate(value as UserProfile);
       } catch (error) {
         console.error("Error submitting form:", error);
-        alert("Failed to update profile. Please try again.");
       }
     },
   });
@@ -149,8 +168,35 @@ function ProfileForm() {
         className="flex flex-col gap-6"
       >
         <div className="flex flex-col md:flex-row md:gap-14 gap-6 pt-6">
-          <div className="h-[100px] w-[100px] bg-gray-100 rounded-full flex-shrink-0 flex items-center justify-center text-gray-400">
-            <span>Photo</span>
+          {/* user profile photo */}
+          <div className="relative">
+            <div
+              className="relative h-[100px] w-[100px] bg-gray-100 rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden cursor-pointer"
+              onClick={() =>
+                document.getElementById("profile-photo-input")?.click()
+              }
+            >
+              {userProfile.profilePhoto ? (
+                <img
+                  src={userProfile.profilePhoto}
+                  alt={`${userProfile.fullName}'s profile`}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <span className="text-gray-400">Photo</span>
+              )}
+            </div>
+            <input
+              id="profile-photo-input"
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={handlePhotoUpload}
+            />
+            <PencilIcon
+              className="p-0 absolute text-white bg-black rounded-full p-1 top-[75px] right-[10px]"
+              size={24}
+            />
           </div>
 
           <div className="flex-1 grid md:grid-cols-2 grid-cols-1 gap-6">
@@ -373,7 +419,10 @@ function ProfileLoadingSkeleton() {
   return (
     <div className="animate-pulse">
       <div className="flex flex-col md:flex-row md:gap-14 gap-6 pt-6">
-        <div className="h-[100px] w-[100px] bg-gray-200 rounded-full"></div>
+        <div className="flex flex-col items-center">
+          <div className="h-[100px] w-[100px] bg-gray-200 rounded-full"></div>
+          <div className="mt-2 h-4 w-20 bg-gray-200 rounded"></div>
+        </div>
         <div className="flex-1 grid md:grid-cols-2 grid-cols-1 gap-6">
           <div className="md:col-span-2 h-6 bg-gray-200 rounded"></div>
           {[...Array(10)].map((_, i) => (

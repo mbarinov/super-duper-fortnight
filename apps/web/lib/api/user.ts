@@ -23,6 +23,7 @@ export const userProfileSchema = z.object({
   city: z.string().trim().nonempty(),
   postalCode: z.string().trim().nonempty(),
   country: z.string().trim().nonempty(),
+  profilePhoto: z.string().optional(),
 });
 
 export type UserProfile = z.infer<typeof userProfileSchema>;
@@ -38,6 +39,7 @@ const mockUserProfile: UserProfile = {
   city: "New York",
   postalCode: "10001",
   country: "United States",
+  profilePhoto: "",
 };
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -55,5 +57,23 @@ export async function updateUserProfile(
 
   await delay(300);
 
+  // Update the mock profile
+  Object.assign(mockUserProfile, data);
+
   return data;
+}
+
+export async function uploadProfilePhoto(
+  file: File
+): Promise<{ profilePhoto: string }> {
+  await delay(800);
+
+  // Create a mock URL for the uploaded photo
+  // In a real implementation, this would be a URL from a CDN or storage service
+  const mockPhotoUrl = URL.createObjectURL(file);
+
+  // Update the mock user profile
+  mockUserProfile.profilePhoto = mockPhotoUrl;
+
+  return { profilePhoto: mockPhotoUrl };
 }

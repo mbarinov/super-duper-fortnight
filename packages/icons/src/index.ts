@@ -18,4 +18,5 @@ export * from "./money-icon";
 export * from "./deposit-icon";
 export * from "./chevron-right-icon";
 export * from "./send-icon";
+export * from "./pencil-icon";
 export * from "./types";
