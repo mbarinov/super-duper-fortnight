@@ -1,7 +1,7 @@
 import React from "react";
 import { MenuIcon, SettingsOutlineIcon, NotificationsIcon } from "@repo/icons";
 
-import { Input } from "@/lib/components/input";
+import { Search } from "@/lib/components/search";
 import { IconButton } from "@/lib/components/icon-button";
 import Avatar from "@/lib/components/avatar";
 import { NAV_ITEMS } from "./navigation";
@@ -30,10 +30,9 @@ const Header = () => {
         <Title />
         <Avatar className="md:hidden" src="/user-avatar.png" name="John Doe" />
 
-
         {/* Right Section: Avatar or Profile */}
         <div className="items-center gap-[30px] hidden md:flex">
-          <Input
+          <Search
             leftIcon="search"
             className=""
             type="search"
@@ -55,7 +54,7 @@ const Header = () => {
       </div>
 
       <div className="flex items-center justify-between md:hidden bg-white px-6 pb-5 relative z-10">
-        <Input
+        <Search
           leftIcon="search"
           type="search"
           placeholder="Search for something"
