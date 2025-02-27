@@ -1,6 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
+import dynamic from "next/dynamic";
+import { useQuery } from "@tanstack/react-query";
+import { fetchBalanceData, BalanceData } from "@/lib/api/balances";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -15,7 +18,6 @@ import {
   ScriptableContext,
   TooltipItem,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
@@ -28,20 +30,41 @@ ChartJS.register(
   Legend
 );
 
-const MyChart: React.FC = () => {
+const Line = dynamic(() => import("react-chartjs-2").then((mod) => mod.Line), {
+  ssr: false,
+});
+
+const ChartSkeleton = () => <div className="w-full rounded-lg"></div>;
+
+const Balance: React.FC = () => {
+  const { data: balanceData, isLoading } = useQuery({
+    queryKey: ["balanceData"],
+    queryFn: fetchBalanceData,
+  });
+
+  if (isLoading || !balanceData) {
+    return <ChartSkeleton />;
+  }
+
+  return <BalanceChart data={balanceData} />;
+};
+
+// The actual chart component that receives data
+const BalanceChart: React.FC<{ data: BalanceData[] }> = ({ data }) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   });
 
-  const labels = ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan"];
+  const labels = data.map((item) => item.month);
+  const values = data.map((item) => item.balance);
 
   const chartData: ChartData<"line"> = {
     labels,
     datasets: [
       {
         label: "Balance",
-        data: [250, 400, 750, 800, 450, 300, 650],
+        data: values,
         borderColor: "#1814F3",
         fill: true,
         tension: 0.4,
@@ -125,4 +148,17 @@ const MyChart: React.FC = () => {
   return <Line data={chartData} options={options} />;
 };
 
-export default MyChart;
+const LazyMyChart: React.FC = () => {
+  return (
+    <Suspense fallback={<ChartSkeleton />}>
+      <Balance />
+    </Suspense>
+  );
+};
+
+const DynamicChart = dynamic(() => Promise.resolve(LazyMyChart), {
+  ssr: false,
+  loading: ChartSkeleton,
+});
+
+export default DynamicChart;

@@ -2,16 +2,15 @@ import React from "react";
 import Image from "next/image";
 import { MastercardIcon } from "@repo/icons";
 import cn from "classnames";
+import { useQuery } from "@tanstack/react-query";
+import { fetchCards } from "@/lib/api/cards";
+import { CardType } from "@/lib/api/cards/types";
 
 import chipWhite from "./chip-white.png";
 import chipBlack from "./chip-black.png";
 
 interface CreditCardProps {
-  balance: number;
-  currency: string;
-  cardHolder: string;
-  cardNumber: string;
-  validThru: string;
+  cardId?: string;
   isPremium?: boolean;
   onClick?: () => void;
 }
@@ -20,20 +19,42 @@ interface CreditCardProps {
  * CreditCard component displays a stylized credit card with user information
  */
 const CreditCard: React.FC<CreditCardProps> = ({
-  balance = 5756,
-  currency = "USD",
-  cardHolder = "Eddy Cusuma",
-  cardNumber = "3778 **** **** 1234",
-  validThru = "12/25",
+  cardId,
   isPremium = false,
   onClick,
 }) => {
+  const { data: cards, isLoading } = useQuery({
+    queryKey: ["cards"],
+    queryFn: fetchCards,
+  });
+
+  const card: CardType = cards?.find(
+    (c) => cardId && c.cardNumber.includes(cardId)
+  ) ||
+    cards?.[0] || {
+      balance: 0,
+      currency: "USD",
+      cardHolder: "",
+      cardNumber: "**** **** **** ****",
+      validThru: "**/**",
+    };
+
+  const { balance, currency, cardHolder, cardNumber, validThru } = card;
+
   const balanceFormatted = Intl.NumberFormat("en-US", {
     style: "currency",
     currency,
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }).format(balance);
+
+  if (isLoading) {
+    return (
+      <div className="md:w-[350px] md:h-[235px] w-[265px] h-[170px] animate-pulse">
+        <div className="w-full h-full rounded-[25px] bg-gray-200"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="md:w-[350px] md:h-[235px] w-[265px] h-[170px]">
@@ -57,7 +78,7 @@ const CreditCard: React.FC<CreditCardProps> = ({
                 Balance
               </span>
               <span
-                className={`text-header !font-normalchip-black.png ${isPremium ? "text-white" : "text-[#343C6A]"}`}
+                className={`text-header !font-normal ${isPremium ? "text-white" : "text-[#343C6A]"}`}
               >
                 {balanceFormatted}
               </span>
