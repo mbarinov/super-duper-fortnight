@@ -167,9 +167,9 @@ function ProfileForm() {
         }}
         className="flex flex-col gap-6"
       >
-        <div className="flex flex-col md:flex-row md:gap-14 gap-6 pt-6">
+        <div className="flex flex-col md:flex-row md:gap-14 gap-6 pt-6 items-center md:items-start">
           {/* user profile photo */}
-          <div className="relative">
+          <div className="relative w-fit">
             <div
               className="relative h-[100px] w-[100px] bg-gray-100 rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden cursor-pointer"
               onClick={() =>
