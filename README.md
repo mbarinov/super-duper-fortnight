@@ -1,13 +1,12 @@
 ## [View Demo](https://soar-demo.vercel.app)
 
 ## Overview
+
 Key features:
 
 - **React Server Components** for improved initial load performance
 - **Dynamic Lazy Loading** for each dashboard tile to prioritize critical content
 - **Responsive Design** that adapts seamlessly from mobile to desktop
-
-The dashboard includes modules for card management, transactions, activity tracking, expense statistics, quick transfers, and balance history.
 
 ## How to Run
 
