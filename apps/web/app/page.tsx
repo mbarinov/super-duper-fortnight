@@ -5,6 +5,7 @@ import Transactions from "@/lib/pages/dashboard/transactions";
 import Transfers from "@/lib/pages/dashboard/transfers";
 import Activity from "@/lib/pages/dashboard/activity";
 import Expenses from "@/lib/pages/dashboard/expenses";
+import Balance from "@/lib/pages/dashboard/balance";
 
 export default function Home() {
   return (
@@ -47,7 +48,9 @@ export default function Home() {
 
           <div className="min-[1440px]:flex-1 w-full">
             <GridItem title="Balance History">
-              <Box>Placeholder for line chart</Box>
+              <Box className="md:h-[275px] h-[176px]">
+                <Balance />
+              </Box>
             </GridItem>
           </div>
         </div>
