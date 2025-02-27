@@ -71,7 +71,7 @@ export default function Tabs({ tabs = [] as Tab[] }) {
         })}
       </div>
 
-      <div className="p-4">{loadedTabContent[activeTab] || null}</div>
+      <div className="p-0 md:p-4">{loadedTabContent[activeTab] || null}</div>
     </div>
   );
 }

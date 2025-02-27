@@ -199,7 +199,7 @@ function ProfileForm() {
             />
           </div>
 
-          <div className="flex-1 grid md:grid-cols-2 grid-cols-1 gap-6">
+          <div className="flex-1 grid md:grid-cols-2 grid-cols-1 gap-6 w-full">
             <form.Field
               name="fullName"
               validators={{
@@ -407,7 +407,7 @@ function ProfileForm() {
 
 function ProfileComponent() {
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="mx-auto">
       <Suspense fallback={<ProfileLoadingSkeleton />}>
         <ProfileForm />
       </Suspense>
