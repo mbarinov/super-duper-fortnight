@@ -12,7 +12,11 @@ interface TabContentMap {
   [key: number]: React.ReactNode;
 }
 
-export default function Tabs({ tabs = [] as Tab[] }) {
+interface TabsProps {
+  tabs: Tab[];
+}
+
+export default function Tabs({ tabs = [] as Tab[] }: TabsProps) {
   const [activeTab, setActiveTab] = useState(0);
   const [loadedTabContent, setLoadedTabContent] = useState<TabContentMap>({});
 

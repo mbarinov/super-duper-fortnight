@@ -1,84 +1,63 @@
-# Turborepo starter
+## [View Demo](https://soar-demo.vercel.app)
 
-This Turborepo starter is maintained by the Turborepo core team.
+## Overview
+Key features:
 
-## Using this example
+- **React Server Components** for improved initial load performance
+- **Dynamic Lazy Loading** for each dashboard tile to prioritize critical content
+- **Responsive Design** that adapts seamlessly from mobile to desktop
 
-Run the following command:
+The dashboard includes modules for card management, transactions, activity tracking, expense statistics, quick transfers, and balance history.
 
-```sh
-npx create-turbo@latest
-```
+## How to Run
 
-## What's inside?
+1. Clone the repository
 
-This Turborepo includes the following packages/apps:
+   ```
+   git clone https://github.com/yourusername/soar.git
+   cd soar
+   ```
 
-### Apps and Packages
+2. Install dependencies
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+   ```
+   pnpm install
+   ```
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+3. Start the development server
 
-### Utilities
+   ```
+   pnpm dev
+   ```
 
-This Turborepo has some additional tools already setup for you:
+4. Open your browser and navigate to [http://localhost:3000](http://localhost:3000)
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+### Build for Production
 
 ```
-cd my-turborepo
 pnpm build
+pnpm start
 ```
 
-### Develop
+## Tech Stack
 
-To develop all apps and packages, run the following command:
+- **Framework**: [Next.js 15](https://nextjs.org/) with React 19
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **State Management**: [React Query (TanStack Query)](https://tanstack.com/query)
+- **Data Fetching**: SWR for real-time data
+- **Visualization**: Chart.js with React-ChartJS-2
+- **Monorepo Management**: Turborepo
+- **Package Manager**: pnpm
+- **Performance Optimization**:
+  - Dynamic imports
+  - Next.js App Router
+  - React Server Components
+  - Lazy loading with Suspense boundaries
+- **Type Safety**: TypeScript
 
-```
-cd my-turborepo
-pnpm dev
-```
+## Project Structure
 
-### Remote Caching
+The project is organized as a monorepo using Turborepo:
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+- `apps/web`: Main Next.js application
+- `packages`: Shared components and configurations

@@ -14,11 +14,13 @@ export const Avatar: React.FC<AvatarProps> = ({
 }) => {
   // Get initials from name (first letter of first and last name)
   const getInitials = (name: string) => {
-    const nameParts = name.split(" ");
-    if (nameParts.length === 1) return nameParts[0].charAt(0).toUpperCase();
+    if (!name) return "";
+    const nameParts = name.split(" ").filter(Boolean);
+    if (nameParts.length === 0) return "";
+    if (nameParts.length === 1) return nameParts[0]!.charAt(0).toUpperCase();
     return (
-      nameParts[0].charAt(0).toUpperCase() +
-      nameParts[nameParts.length - 1].charAt(0).toUpperCase()
+      nameParts[0]!.charAt(0).toUpperCase() +
+      nameParts[nameParts.length - 1]!.charAt(0).toUpperCase()
     );
   };
 

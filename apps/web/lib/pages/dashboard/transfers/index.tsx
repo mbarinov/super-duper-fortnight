@@ -33,7 +33,7 @@ function TransfersContent() {
   }, [contacts]);
 
   const sendMoneyMutation = useMutation({
-    mutationFn: () => sendMoney(),
+    mutationFn: sendMoney,
     onSuccess: () => {
       const contact = contacts.find(
         (contact) => contact.id === selectedContact
@@ -49,7 +49,7 @@ function TransfersContent() {
 
   const handleSendClick = () => {
     if (amount && selectedContact) {
-      sendMoneyMutation.mutate({ contactId: selectedContact, amount });
+      sendMoneyMutation.mutate();
     }
   };
 
