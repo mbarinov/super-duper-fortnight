@@ -8,29 +8,6 @@ Key features:
 - **Dynamic Lazy Loading** for each dashboard tile to prioritize critical content
 - **Responsive Design** that adapts seamlessly from mobile to desktop
 
-## How to Run
-
-1. Clone the repository
-
-   ```
-   git clone https://github.com/yourusername/soar.git
-   cd soar
-   ```
-
-2. Install dependencies
-
-   ```
-   pnpm install
-   ```
-
-3. Start the development server
-
-   ```
-   pnpm dev
-   ```
-
-4. Open your browser and navigate to [http://localhost:3000](http://localhost:3000)
-
 ### Build for Production
 
 ```
