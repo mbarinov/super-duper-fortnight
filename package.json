@@ -10,17 +10,11 @@
   },
   "devDependencies": {
     "prettier": "^3.5.0",
-    "turbo": "^2.4.2",
+    "turbo": "^2.4.4",
     "typescript": "5.7.3"
   },
   "packageManager": "pnpm@9.0.0",
   "engines": {
     "node": ">=18"
-  },
-  "dependencies": {
-    "@tanstack/react-form": "^0.45.1",
-    "@tanstack/zod-form-adapter": "^0.42.1",
-    "swr": "^2.3.2",
-    "zod": "^3.24.2"
   }
 }
