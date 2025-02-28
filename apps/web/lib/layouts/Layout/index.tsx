@@ -1,7 +1,7 @@
 import React from "react";
 
 import Sidebar from "./sidebar";
-import Header from "./header";
+import Header from "./Header";
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
