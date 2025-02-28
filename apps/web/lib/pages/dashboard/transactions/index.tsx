@@ -3,8 +3,8 @@
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { useQuery } from "@tanstack/react-query";
-import { fetchTransactions } from "@/lib/api/transactions";
-import { TransactionType } from "@/lib/api/transactions/types";
+import { fetchTransactions } from "../../../api/transactions";
+import { TransactionType } from "../../../api/transactions/types";
 import TransactionSkeleton from "./transaction-skeleton";
 
 const Transaction = dynamic(() => import("./transaction"), {

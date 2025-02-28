@@ -3,8 +3,8 @@ import Image from "next/image";
 import { MastercardIcon } from "@repo/icons";
 import cn from "classnames";
 import { useQuery } from "@tanstack/react-query";
-import { fetchCards } from "@/lib/api/cards";
-import { CardType } from "@/lib/api/cards/types";
+import { fetchCards } from "../../../api/cards";
+import { CardType } from "../../../api/cards/types";
 
 import chipWhite from "./chip-white.png";
 import chipBlack from "./chip-black.png";

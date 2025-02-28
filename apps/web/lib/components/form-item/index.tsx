@@ -1,4 +1,4 @@
-import Input from "@/lib/components/input";
+import Input from "../input";
 
 interface FieldState {
   value: string | undefined;

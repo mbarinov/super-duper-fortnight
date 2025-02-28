@@ -1,5 +1,5 @@
 import cn from "classnames";
-import IconButton from "@/lib/components/icon-button";
+import IconButton from "../../../components/icon-button";
 import { DepositIcon, MoneyIcon, PaypalIcon } from "./transaction-icons";
 
 interface TransactionProps {

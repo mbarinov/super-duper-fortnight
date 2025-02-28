@@ -3,7 +3,7 @@
 import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { useQuery } from "@tanstack/react-query";
-import { fetchBalanceData, BalanceData } from "@/lib/api/balances";
+import { fetchBalanceData, BalanceData } from "../../../api/balances";
 import {
   Chart as ChartJS,
   CategoryScale,

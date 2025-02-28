@@ -2,14 +2,14 @@
 
 import { useState, useMemo, Suspense, useEffect } from "react";
 import { ChevronRightIcon, SendIcon } from "@repo/icons";
-import { IconButton } from "@/lib/components/icon-button";
+import { IconButton } from "../../../components/icon-button";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
-import { fetchContacts, sendMoney, ContactType } from "@/lib/api/transfers";
+import { fetchContacts, sendMoney, ContactType } from "../../../api/transfers";
 import {
   ContactSkeleton,
   AmountInputSkeleton,
-} from "@/lib/components/skeleton";
+} from "../../../components/skeleton";
 
 const Contact = dynamic(() => import("./contact"), {
   ssr: false,

@@ -13,7 +13,7 @@ import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Pie } from "react-chartjs-2";
 import dynamic from "next/dynamic";
 import { useQuery } from "@tanstack/react-query";
-import { fetchExpenseData, ExpenseData } from "@/lib/api/expenses";
+import { fetchExpenseData, ExpenseData } from "../../../api/expenses";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

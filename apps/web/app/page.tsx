@@ -1,11 +1,11 @@
-import Box from "@/lib/components/box";
+import Box from "../lib/components/box";
 import GridItem from "../lib/components/grid-item";
-import { Cards } from "@/lib/pages/dashboard/cards";
-import Transactions from "@/lib/pages/dashboard/transactions";
-import Transfers from "@/lib/pages/dashboard/transfers";
-import Activity from "@/lib/pages/dashboard/activity";
-import Expenses from "@/lib/pages/dashboard/expenses";
-import Balance from "@/lib/pages/dashboard/balance";
+import { Cards } from "../lib/pages/dashboard/cards";
+import Transactions from "../lib/pages/dashboard/transactions";
+import Transfers from "../lib/pages/dashboard/transfers";
+import Activity from "../lib/pages/dashboard/activity";
+import Expenses from "../lib/pages/dashboard/expenses";
+import Balance from "../lib/pages/dashboard/balance";
 
 export default function Home() {
   return (

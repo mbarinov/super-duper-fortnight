@@ -4,8 +4,8 @@ import React from "react";
 import dynamic from "next/dynamic";
 import { useQuery } from "@tanstack/react-query";
 import CreditCard from "./card";
-import { fetchCards } from "@/lib/api/cards";
-import { CardType } from "@/lib/api/cards/types";
+import { fetchCards } from "../../../api/cards";
+import { CardType } from "../../../api/cards/types";
 
 const CardSkeleton = () => (
   <div className="snap-center flex-shrink-0">

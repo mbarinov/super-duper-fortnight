@@ -2,8 +2,8 @@
 
 import { useForm } from "@tanstack/react-form";
 import { z } from "zod";
-import FormItem from "@/lib/components/form-item";
-import Button from "@/lib/components/button";
+import FormItem from "../../../components/form-item";
+import Button from "../../../components/button";
 import dynamic from "next/dynamic";
 import {
   useMutation,
@@ -15,7 +15,7 @@ import {
   updateUserProfile,
   uploadProfilePhoto,
   UserProfile,
-} from "@/lib/api/user";
+} from "../../../api/user";
 import { Suspense } from "react";
 import { PencilIcon } from "@repo/icons";
 

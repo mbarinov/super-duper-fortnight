@@ -1,4 +1,4 @@
-import Box from "@/lib/components/box";
+import Box from "../lib/components/box";
 
 export default function NotFound() {
   return (

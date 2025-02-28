@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Lato } from "next/font/google";
-import { Layout } from "@/lib/layouts/layout";
-import { ReactQueryProvider } from "@/lib/providers/query-provider";
+import { Layout } from "../lib/layouts/layout";
+import { ReactQueryProvider } from "../lib/providers/query-provider";
 
 const inter = Inter({
   subsets: ["latin"],

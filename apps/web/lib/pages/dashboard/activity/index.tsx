@@ -13,7 +13,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { fetchTransactionData } from "@/lib/api/activity-chart";
+import { fetchTransactionData } from "../../../api/activity-chart";
 
 ChartJS.register(
   CategoryScale,

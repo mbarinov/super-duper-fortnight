@@ -1,9 +1,9 @@
 import React from "react";
 import { MenuIcon, SettingsOutlineIcon, NotificationsIcon } from "@repo/icons";
 
-import { Search } from "@/lib/components/search";
-import { IconButton } from "@/lib/components/icon-button";
-import Avatar from "@/lib/components/avatar";
+import { Search } from "../../components/search";
+import { IconButton } from "../../components/icon-button";
+import Avatar from "../../components/avatar";
 import { NAV_ITEMS } from "./navigation";
 import Title from "./title";
 import { SidebarIcon } from "./SidebarIcon";
